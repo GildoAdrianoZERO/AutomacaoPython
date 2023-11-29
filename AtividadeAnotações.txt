@@ -1,0 +1,86 @@
+Essas linhas de código estão definindo variáveis que serão utilizadas posteriormente no script.
+
+url = "https://github.com"
+username = "testeFaculdadeSelenium@gmail.com"
+password = "TesteSelenium@123":
+
+    - `url = "https://github.com"`: Define a variável `url` com a URL do GitHub, que será aberta no navegador.
+    - `username = "testeFaculdadeSelenium@gmail.com"`: Define a variável `username` com o nome de usuário ou e-mail que será usado para fazer login.
+    - `password = "TesteSelenium@123"`: Define a variável `password` com a senha correspondente ao nome de usuário para fazer login.
+
+ Essas variáveis armazenam as informações necessárias para a execução do script, como a URL do site a ser testado e as credenciais de login.
+
+driver = webdriver.Chrome():
+    Essa linha de código está inicializando uma instância do WebDriver do Chrome. 
+
+        - `webdriver` é um módulo do Selenium que fornece uma interface para interagir com diferentes navegadores.
+        - `Chrome()` é um método específico para iniciar o WebDriver do Chrome.
+        
+driver.get(url):
+    Essa linha de código está utilizando o objeto `driver` (previamente inicializado como o WebDriver do Chrome) para abrir uma URL específica no navegador.
+
+        - `get()` é um método do Selenium que navega para a URL fornecida como argumento.
+        - `url` é a variável que contém a URL que você deseja abrir.
+    (Portanto, essa linha está instruindo o navegador a abrir a página cuja URL é especificada pela variável `url`.)
+
+sign_in_link = driver.find_element("link text", "Sign in"):
+    Essa linha de código está utilizando o objeto `driver` para encontrar um elemento na página, mais especificamente um link que contém o texto "Sign in".
+
+        - `find_element("link text", "Sign in")` é um método do Selenium que busca por um elemento na página com base no texto do link.
+        - O resultado é atribuído à variável `sign_in_link`, que agora referencia esse elemento na página.
+
+    Essencialmente, essa linha encontra o link "Sign in" na página e armazena informações sobre esse link na variável `sign_in_link`.   
+
+sign_in_link.click():
+    Essa linha de código está usando o objeto `sign_in_link`, que anteriormente foi definido como o elemento "Sign in" na página, para simular um clique nesse link.
+
+        - `click()` é um método do Selenium que simula um clique no elemento.
+        - Portanto, essa linha está efetivamente clicando no link "Sign in" na página, o que geralmente levaria a página para a tela de login ou alguma outra ação associada a esse link.   
+
+username_field = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "login_field"))):
+    Essa linha de código usa a espera explícita (`WebDriverWait`) para aguardar até que um elemento com o ID "login_field" esteja presente na página antes de prosseguir.
+
+        - `WebDriverWait(driver, 10)` cria um objeto de espera que aguarda até 10 segundos.
+        - `until(EC.presence_of_element_located((By.ID, "login_field")))` especifica a condição que a espera está aguardando. Neste caso, espera até que um elemento com o ID "login_field" esteja presente na página.
+
+    O resultado é atribuído à variável `username_field`, que agora referencia o campo de nome de usuário na página. Essa abordagem é útil para lidar com atrasos no carregamento da página ou elementos que são carregados dinamicamente.
+
+password_field = driver.find_element("id", "password"):
+    Essa linha de código está utilizando o objeto `driver` para encontrar um elemento na página, mais especificamente um campo de senha.
+
+    - `find_element("id", "password")` é um método do Selenium que busca por um elemento na página com base no ID.
+    - O resultado é atribuído à variável `password_field`, que agora referencia o campo de senha na página.
+
+    Portanto, essa linha encontra o campo de senha na página e armazena informações sobre esse campo na variável `password_field`.
+
+username_field.send_keys(username)
+password_field.send_keys(password): 
+
+    Essas linhas de código estão usando os campos de nome de usuário (`username_field`) e senha (`password_field`) para inserir dados.
+
+    - `send_keys()` é um método do Selenium que simula a entrada de teclado em um elemento.
+    - `username_field.send_keys(username)` está inserindo o texto contido na variável `username` no campo de nome de usuário.
+    - `password_field.send_keys(password)` está inserindo o texto contido na variável `password` no campo de senha.
+
+    Essencialmente, essas linhas automatizam o preenchimento dos campos de nome de usuário e senha com os valores fornecidos nas variáveis correspondentes. 
+
+password_field.send_keys(Keys.RETURN):
+    Essa linha de código está usando o método `send_keys()` para simular a pressionar da tecla "Enter" no campo de senha (`password_field`).
+
+    - `Keys.RETURN` é uma constante do Selenium que representa a tecla "Enter".
+    - `password_field.send_keys(Keys.RETURN)` está simulando a o click da tecla "Enter" no campo de senha.
+
+    Essa ação é muitas vezes usada para submeter formulários, e neste contexto, ela está sendo utilizada para enviar o formulário de login, pois é equivalente a pressionar o botão "Sign in" após preencher os campos de nome de usuário e senha.
+
+Bibliotecas:
+
+Essas linhas de código são importações de bibliotecas necessárias para utilizar o Selenium e realizar automação de testes em um navegador web.
+
+- `from selenium import webdriver`: Importa o módulo `webdriver` do Selenium, que fornece a interface para controlar diferentes navegadores.
+- `from selenium.webdriver.common.keys import Keys`: Importa a classe `Keys` do Selenium, que contém constantes para representar teclas do teclado.
+- `from selenium.webdriver.common.by import By`: Importa a classe `By` do Selenium, que fornece métodos para selecionar elementos na página usando diferentes estratégias de localização.
+- `from selenium.webdriver.support.ui import WebDriverWait`: Importa a classe `WebDriverWait` do Selenium, que permite a espera explícita para aguardar a presença de elementos na página.
+- `from selenium.webdriver.support import expected_conditions as EC`: Importa a classe `expected_conditions` do Selenium, que contém condições que podem ser usadas com a espera explícita.
+- `import time`: Importa o módulo `time` do Python, que fornece funções relacionadas ao tempo, como `sleep` que pode ser usada para pausar a execução do script por um determinado período.
+
+Essas importações são comuns ao usar o Selenium para automação de testes web, e elas fornecem as ferramentas necessárias para interagir com navegadores, localizar elementos na página e realizar operações de automação.

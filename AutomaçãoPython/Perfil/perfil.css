@@ -1,0 +1,30 @@
+.perfil-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.perfil-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.perfil-container div {
+    display: table;
+    width: 100%;
+}
+
+.perfil-container p {
+    display: table-row;
+    margin: 10px 0;
+}
+
+.perfil-container span {
+    display: table-cell;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
